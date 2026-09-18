@@ -27,7 +27,34 @@ sourceSets.main.resources {
 }
 
 repositories {
-    // Add here additional repositories if required by some of the dependencies below.
+    flatDir {
+        dir 'libs'
+    }
+
+    maven {
+        name = "Iron's Maven - Release"
+        url = "https://code.redspace.io/releases"
+    }
+
+    maven {
+        name = "Iron's Maven - Snapshots"
+        url = "https://code.redspace.io/snapshots"
+    }
+
+    maven { url = "https://maven.enginehub.org/repo/" }
+    maven {
+        url = "https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/"
+        content {
+            includeGroup("software.bernie.geckolib")
+        }
+    }
+    maven {
+        name = "Illusive Soulworks maven"
+        url = "https://maven.theillusivec4.top/"
+    }
+    maven { url = "https://cursemaven.com" }
+    maven { url = "https://maven.blamejared.com" }
+    maven { url = "https://maven.kosmx.dev/" }
 }
 
 base {
@@ -116,27 +143,45 @@ configurations {
 }
 
 dependencies {
-    // Example optional mod dependency with JEI
-    // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
-    // compileOnly "mezz.jei:jei-${mc_version}-common-api:${jei_version}"
-    // compileOnly "mezz.jei:jei-${mc_version}-neoforge-api:${jei_version}"
-    // We add the full version to localRuntime, not runtimeOnly, so that we do not publish a dependency on it
-    // localRuntime "mezz.jei:jei-${mc_version}-neoforge:${jei_version}"
 
-    // Example mod dependency using a mod jar from ./libs with a flat dir repository
-    // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
-    // The group id is ignored when searching -- in this case, it is "blank"
-    // implementation "blank:coolmod-${mc_version}:${coolmod_version}"
+    /*
+    *** Main Dependencies **********************************************************************************************
+     */
 
-    // Example mod dependency using a file as dependency
-    // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+    //Iron's Spells 'n Spellbooks
+    implementation "curse.maven:irons_spells_n_spellbooks-855414:8237097"
+    implementation "curse.maven:iron_lib-1492763:8207094"
+    implementation "curse.maven:geckolib-388172:8350073"
+    implementation "curse.maven:player_animator-658587:6024462"
+    implementation "curse.maven:curios-309927:6529130"
+    implementation "curse.maven:caelus-308989:5694215"
+    //Ace Utils
+    implementation "curse.maven:ace_utils-1299492:8789930"
+    //HazentouveLib
+    implementation "curse.maven:hazentouvelib-1528722:8666581"
+    //Archaion
+    implementation "curse.maven:hazentouvelib-1620396:8784992"
+    implementation "curse.maven:aaa_particles-979809:8402890"
 
-    // Example project dependency using a sister or child project:
-    // implementation project(":myproject")
+    /*
+    *** Runtime Only ***************************************************************************************************
+     */
 
-    // For more info:
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+    //JEI
+    compileOnly "mezz.jei:jei-${jei_mc_version}-common-api:${jei_version}"
+    compileOnly "mezz.jei:jei-${jei_mc_version}-neoforge-api:${jei_version}"
+    runtimeOnly "mezz.jei:jei-${jei_mc_version}-neoforge:${jei_version}"
+
+    // Embeddium
+    localRuntime "curse.maven:embeddium-908741:6118392"
+
+    //Jade
+    localRuntime "curse.maven:jade-324717:6853386"
+
+    // MmmMmmMmm
+    localRuntime "curse.maven:mmm-225738:7206981"
+    localRuntime "curse.maven:moonlight_lib-499980:7669172"
+
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
