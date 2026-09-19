@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "irons_spellbooks:netherite_mage_helmet"
+    },
+    "C": {
+      "item": "archaion:echo_charge"
+    },
+    "D": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "E": {
+      "item": "echoing_magic:echoing_essence"
+    }
+  },
+  "pattern": [
+    "CEC",
+    "DAD",
+    "   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "echoing_magic:reinforced_juggernaut_helmet"
+  }
+}
