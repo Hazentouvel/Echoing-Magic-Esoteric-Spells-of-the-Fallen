@@ -74,7 +74,7 @@ neoForge {
     }
 
     // This line is optional. Access Transformers are automatically detected
-    // accessTransformers = project.files('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformers = project.files('src/main/templates/META-INF/accesstransformer.cfg')
 
     // Default run configurations.
     // These can be tweaked, removed, or duplicated as needed.
@@ -160,8 +160,24 @@ dependencies {
     //HazentouveLib
     implementation "curse.maven:hazentouvelib-1528722:8666581"
     //Archaion
-    implementation "curse.maven:hazentouvelib-1620396:8784992"
-    implementation "curse.maven:aaa_particles-979809:8402890"
+    implementation "curse.maven:archaion-1620396:8784992"
+    implementation "curse.maven:aaa_particles-979809:8402817"
+    implementation "curse.maven:architectury-419699:8492726"
+
+    /*
+    *** Compat
+     */
+
+    // GTBC's Geomancy Plus
+    runtimeOnly  "curse.maven:geomancy_plus-1352485:7041615"
+    compileOnly  "curse.maven:geomancy_plus-1352485:7041615"
+
+    runtimeOnly  "curse.maven:gtbc_lib-1194714:8824651"
+    compileOnly  "curse.maven:gtbc_lib-1194714:8824651"
+
+    runtimeOnly  "curse.maven:gtbc_lib-250498:7760267"
+    compileOnly  "curse.maven:gtbc_lib-250498:7760267"
+
 
     /*
     *** Runtime Only ***************************************************************************************************

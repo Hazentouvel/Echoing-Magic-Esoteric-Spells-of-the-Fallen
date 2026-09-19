@@ -1,0 +1,52 @@
+{
+  "item.echoing_magic.set_bonus.description": "When wearing full set:",
+
+  "item.echoing_magic.echoing_essence": "Echoing Essence",
+
+  "item.echoing_magic.impact_augment": "Impact Augment",
+  "item.echoing_magic.impact_augment.desc": "Deals damage to the area you are teleported to.",
+  "item.echoing_magic.impact_augment.desc.alt": "A pearl reinforced the essence of the brave attached onto chain...",
+
+  "item.echoing_magic.reinforced_juggernaut_helmet": "Reinforced Juggernaut Helm",
+  "item.echoing_magic.reinforced_juggernaut_chestplate": "Reinforced Juggernaut Chestplate",
+  "item.echoing_magic.reinforced_juggernaut_leggings": "Reinforced Juggernaut Leggings",
+  "item.echoing_magic.reinforced_juggernaut_boots": "Reinforced Juggernaut Boots",
+  "item.echoing_magic.reinforced_juggernaut_explosion_resist.description": "Increases explosion resist by 30%",
+  "item.echoing_magic.reinforced_juggernaut_set_bonus.description": "While critting, deal an AoE damage to nearby enemies",
+
+
+  "spell.echoing_magic.echo_star": "Echo Star",
+  "spell.echoing_magic.echo_blast": "Echo Blast",
+  "spell.echoing_magic.echoing_explosion": "Echoing Explosion",
+  "spell.echoing_magic.echoing_slam": "Echoing Slam",
+  "spell.echoing_magic.conjure_grimoray": "Conjure Grimoray",
+  "spell.echoing_magic.summon_brave": "Summon Brave",
+  "spell.echoing_magic.collapse": "Collapse",
+
+  "spell.echoing_magic.echo_star.guide": "Fire stars that explode on impact.",
+  "spell.echoing_magic.echo_blast.guide": "Fire a powerful blast against your foes",
+  "spell.echoing_magic.echoing_explosion.guide": "Prime yourself and explode, inflicting Armor Break onto enemies.",
+  "spell.echoing_magic.echoing_slam.guide": "Slam the ground and strike down your foes.",
+  "spell.echoing_magic.conjure_grimoray.guide": "Summon a Grimoray to fight for you.",
+  "spell.echoing_magic.summon_brave.guide": "Summon braves to fight for you.",
+  "spell.echoing_magic.collapse.guide": "Rain down destruction upon your enemies.",
+
+  "entity.echoing_magic.echo_star_spell": "Echo Star",
+  "entity.echoing_magic.echoing_blast_spell": "Echoing Blast",
+  "entity.echoing_magic.slam_spell": "Slam",
+  "entity.echoing_magic.falling_block_spell": "Falling Block",
+  "entity.echoing_magic.echo_slam_shockwave": "Shockwave",
+  "entity.echoing_magic.summon_brave": "Summoned Brave",
+  "entity.echoing_magic.conjure_grimoray": "Summoned Grimoray",
+
+
+  "death.attack.echoing_magic.echo_star": "%1$s was bombarded by %2$s",
+  "death.attack.echoing_magic.echo_blast": "%1$s was obliterated by %2$s",
+  "death.attack.echoing_magic.echoing_explosion": "%1$s was exploded by %2$s",
+  "death.attack.echoing_magic.echoing_slam": "%1$s was vaporized by %2$s",
+
+  "death.attack.echoing_magic.echo_star.item": "%1$s was bombarded by %2$s with the use of %3$s",
+  "death.attack.echoing_magic.echo_blast.item": "%1$s was obliterated by %2$s with the use of %3$s",
+  "death.attack.echoing_magic.echoing_explosion.item": "%1$s was exploded by %2$s with the use of %3$s",
+  "death.attack.echoing_magic.echoing_slam.item": "%1$s was vaporized by %2$s with the use of %3$s"
+}

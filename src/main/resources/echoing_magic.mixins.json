@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.hazen.echoing_magic.Mixins",
+  "refmap": "echoing_magic.refmap.json",
+  "plugin": "net.hazen.echoing_magic.Mixins.EMMixinPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+
+    "ScrollModel.ScrollModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

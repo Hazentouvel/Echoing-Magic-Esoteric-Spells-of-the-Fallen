@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "entries": [
+    "echoing_magic:entity_drops/last_of_deepslate_modifier",
+
+
+    "echoing_magic:spawners/deepslate_spawner_modifier",
+    "echoing_magic:vaults/deepslate_vault_modifier"
+  ]
+}

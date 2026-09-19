@@ -1,0 +1,15 @@
+{
+  "type": "irons_spellbooks:append_loot",
+  "conditions": [
+    {
+      "condition": "minecraft:any_of",
+      "terms": [
+        {
+          "condition": "neoforge:loot_table_id",
+          "loot_table_id": "archaion:chests/deepslate_vault"
+        }
+      ]
+    }
+  ],
+  "key": "echoing_magic:entity_drops/additional_last_of_deepslate_loot"
+}
