@@ -4,6 +4,7 @@ package net.hazen.echoing_magic.Registries;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Items.Armor.ReinforcedJuggernaut.ReinforcedJuggernautArmor;
 import net.hazen.echoing_magic.Items.Curios.ImpactAugmentItem;
+import net.hazen.echoing_magic.Items.Misc.EchoedManuscript;
 import net.hazen.hazentouvelib.Rarities.HLRarities;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
@@ -20,6 +21,7 @@ public class EMItemRegistry {
     /*
     *** Materials
      */
+
     // Echoing Essence
     public static final DeferredItem<Item> ECHOING_ESSENCE = ITEMS.register("echoing_essence",
             () -> new Item(new Item
@@ -27,6 +29,10 @@ public class EMItemRegistry {
                     .rarity(HLRarities.COSMIC_RARITY.getValue())
                     .fireResistant())
     );
+
+    // Echoed Manuscript
+    public static final DeferredHolder<Item, Item> ECHOED_MANUSCRIPT = ITEMS.register
+            ("echoed_manuscript", EchoedManuscript::new);
 
     /*
     *** Curios

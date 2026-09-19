@@ -3,6 +3,7 @@ package net.hazen.echoing_magic.Spells.Schools.Cosmic;
 import com.ratrod.archaion.Archaion;
 import com.ratrod.archaion.entities.Haunter;
 import com.ratrod.archaion.registry.ACEffects;
+import com.ratrod.archaion.registry.ACItems;
 import com.ratrod.archaion.registry.ACSounds;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -45,10 +46,14 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.network.PacketDistributor;
+
+import static net.acetheeldritchking.aces_spell_utils.utils.ASUtils.isValidUnlockItemInInventory;
 
 public class EchoingExplosionSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "echoing_explosion");
@@ -56,6 +61,22 @@ public class EchoingExplosionSpell extends AbstractSpell {
 
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
         return List.of(Component.translatable("ui.irons_spellbooks.effect_length", new Object[]{Utils.timeFromTicks((float)this.getDuration(spellLevel, caster), 2)}), Component.translatable("ui.irons_spellbooks.radius", new Object[]{Utils.stringTruncation((double)this.getRadius(spellLevel, caster), 2)}));
+    }
+
+    @Override
+    public Component getLockedMessage() {
+        return Component.translatable("ui.echoing_magic.echo_charge_spell");
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        Item echoedManuscript = ACItems.ECHO_CHARGE.get();
+        return isValidUnlockItemInInventory(echoedManuscript, player);
     }
 
     public EchoingExplosionSpell() {
@@ -67,7 +88,7 @@ public class EchoingExplosionSpell extends AbstractSpell {
                 .build();
         this.manaCostPerLevel = 5;
         this.baseSpellPower = 10;
-        this.spellPowerPerLevel = 3;
+        this.spellPowerPerLevel = 5;
         this.castTime = 45;
         this.baseManaCost = 100;
     }

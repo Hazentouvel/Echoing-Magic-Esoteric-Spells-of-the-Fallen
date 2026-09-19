@@ -1,6 +1,7 @@
 package net.hazen.echoing_magic.Spells.Schools.Cosmic;
 
 import com.ratrod.archaion.Archaion;
+import com.ratrod.archaion.registry.ACItems;
 import com.ratrod.archaion.registry.ACSounds;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
@@ -20,6 +21,7 @@ import mod.chloeprime.aaaparticles.api.common.ParticleEmitterInfo;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Entities.Spells.EchoStar.ExtendedEchoStar;
 import net.hazen.echoing_magic.Registries.EMEntityRegistry;
+import net.hazen.echoing_magic.Registries.EMItemRegistry;
 import net.hazen.hazentouvelib.Registries.HLSchoolRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -27,9 +29,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
+
+import static net.acetheeldritchking.aces_spell_utils.utils.ASUtils.isValidUnlockItemInInventory;
 
 public class EchoStarSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "echo_star");
@@ -39,18 +45,34 @@ public class EchoStarSpell extends AbstractSpell {
         return List.of(Component.translatable("ui.irons_spellbooks.damage", new Object[]{Utils.stringTruncation((double)this.getDamage(spellLevel, caster), 2)}));
     }
 
+    @Override
+    public Component getLockedMessage() {
+        return Component.translatable("ui.echoing_magic.echo_charge_spell");
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        Item echoedManuscript = ACItems.ECHO_CHARGE.get();
+        return isValidUnlockItemInInventory(echoedManuscript, player);
+    }
+
     public EchoStarSpell() {
         this.defaultConfig = (new DefaultConfig())
-                .setMinRarity(SpellRarity.RARE)
+                .setMinRarity(SpellRarity.EPIC)
                 .setSchoolResource(HLSchoolRegistry.COSMIC_RESOURCE)
                 .setMaxLevel(10)
                 .setCooldownSeconds((double)1.0F)
                 .build();
-        this.manaCostPerLevel = 2;
-        this.baseSpellPower = 12;
-        this.spellPowerPerLevel = 1;
+        this.manaCostPerLevel = 8;
+        this.baseSpellPower = 20;
+        this.spellPowerPerLevel = 10;
         this.castTime = 0;
-        this.baseManaCost = 10;
+        this.baseManaCost = 75;
     }
 
     public CastType getCastType() {

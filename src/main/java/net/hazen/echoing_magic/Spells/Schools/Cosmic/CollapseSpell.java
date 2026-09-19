@@ -1,5 +1,6 @@
 package net.hazen.echoing_magic.Spells.Schools.Cosmic;
 
+import com.ratrod.archaion.registry.ACItems;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.magic.MagicData;
 import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
@@ -13,9 +14,7 @@ import io.redspace.ironsspellbooks.api.util.CameraShakeData;
 import io.redspace.ironsspellbooks.api.util.CameraShakeManager;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import io.redspace.ironsspellbooks.capabilities.magic.RecastInstance;
-import io.redspace.ironsspellbooks.capabilities.magic.SyncedSpellData;
 import io.redspace.ironsspellbooks.registries.SoundRegistry;
-import io.redspace.ironsspellbooks.util.ParticleHelper;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,7 +22,6 @@ import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Entities.Spells.FallingBlock.ExtendedLODFallingBlock;
 import net.hazen.echoing_magic.Registries.EMEntityRegistry;
 import net.hazen.hazentouvelib.Registries.HLSchoolRegistry;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -31,6 +29,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ClipContext.Fluid;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -38,17 +37,33 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.HitResult.Type;
 import org.jetbrains.annotations.Nullable;
 
+import static net.acetheeldritchking.aces_spell_utils.utils.ASUtils.isValidUnlockItemInInventory;
+
 public class CollapseSpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID,  "collapse");
     private final DefaultConfig defaultConfig;
 
+    @Override
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.damage")
+        return List.of(
+                Component.translatable("ui.irons_spellbooks.damage", Utils.stringTruncation(getDamage(spellLevel, caster), 2))
         );
     }
 
+    @Override
+    public Component getLockedMessage() {
+        return Component.translatable("ui.echoing_magic.brave_rod_spell");
+    }
+
+    @Override
     public boolean allowLooting() {
         return false;
+    }
+
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        Item echoedManuscript = ACItems.BRAVE_ROD.get();
+        return isValidUnlockItemInInventory(echoedManuscript, player);
     }
 
     public CollapseSpell() {
@@ -59,8 +74,8 @@ public class CollapseSpell extends AbstractSpell {
                 .setCooldownSeconds(16)
                 .build();
         this.manaCostPerLevel = 45;
-        this.baseSpellPower = 15;
-        this.spellPowerPerLevel = 0;
+        this.baseSpellPower = 25;
+        this.spellPowerPerLevel = 15;
         this.castTime = 10;
         this.baseManaCost = 90;
     }
@@ -135,7 +150,7 @@ public class CollapseSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) + Utils.getWeaponDamage(entity);
+        return this.getSpellPower(spellLevel, entity) * 0.5F;
     }
 
     private float getRadius(int spellLevel, LivingEntity entity) {
@@ -144,17 +159,6 @@ public class CollapseSpell extends AbstractSpell {
 
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.STOMP;
-    }
-
-    public static void ambientParticles(LivingEntity entity, SyncedSpellData spellData) {
-        Vec3 vec3 = entity.getBoundingBox().getCenter();
-
-        for(int i = 0; i < 2; ++i) {
-            Vec3 pos = vec3.add(Utils.getRandomVec3((double)(entity.getBbHeight() * 2.0F)));
-            Vec3 motion = vec3.subtract(pos).scale((double)0.1F);
-            entity.level.addParticle(ParticleTypes.SOUL, pos.x, pos.y, pos.z, motion.x, motion.y, motion.z);
-        }
-
     }
 
     public boolean shouldAIStopCasting(int spellLevel, Mob mob, LivingEntity target) {

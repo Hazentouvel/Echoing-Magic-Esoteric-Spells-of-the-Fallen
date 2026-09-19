@@ -93,6 +93,7 @@ public class EchoingMagic {
              */
 
             event.accept(EMItemRegistry.ECHOING_ESSENCE.get());
+            event.accept(EMItemRegistry.ECHOED_MANUSCRIPT.get());
         }
     }
 

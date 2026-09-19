@@ -16,6 +16,7 @@ import io.redspace.ironsspellbooks.util.ParticleHelper;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Entities.Spells.SlamEffect.EchoSlamShockwave;
 import net.hazen.echoing_magic.Entities.Spells.SlamEffect.ExtendedLODSlamEffect;
+import net.hazen.echoing_magic.Spells.AbstractSpell.LastOfDeepslateSpell;
 import net.hazen.hazentouvelib.Registries.HLSchoolRegistry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -34,7 +35,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-public class EchoingSlamSpell extends AbstractSpell {
+public class EchoingSlamSpell extends LastOfDeepslateSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "echoing_slam");
 
     @Override
@@ -53,15 +54,10 @@ public class EchoingSlamSpell extends AbstractSpell {
             .setCooldownSeconds(25)
             .build();
 
-    @Override
-    public boolean allowLooting() {
-        return false;
-    }
-
     public EchoingSlamSpell() {
         this.manaCostPerLevel = 45;
         this.baseSpellPower = 15;
-        this.spellPowerPerLevel = 0;
+        this.spellPowerPerLevel = 5;
         this.castTime = 20;
         this.baseManaCost = 100;
     }

@@ -1,6 +1,7 @@
 package net.hazen.echoing_magic.Spells.Schools.Evocation;
 
 import com.ratrod.archaion.entities.GrimorayType;
+import com.ratrod.archaion.registry.ACItems;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
 import io.redspace.ironsspellbooks.api.config.DefaultConfig;
 import io.redspace.ironsspellbooks.api.events.SpellSummonEvent;
@@ -34,17 +35,43 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.NeoForge;
 import org.jetbrains.annotations.Nullable;
+
+import static net.acetheeldritchking.aces_spell_utils.utils.ASUtils.isValidUnlockItemInInventory;
 
 public class ConjureGrimoraySpell extends AbstractSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "conjure_grimoray");
     private final DefaultConfig defaultConfig;
 
     public List<MutableComponent> getUniqueInfo(int spellLevel, LivingEntity caster) {
-        return List.of(Component.translatable("ui.irons_spellbooks.summon_count", new Object[]{this.getSummonCount(spellLevel, caster)}));
+        return List.of(
+                Component.translatable("ui.irons_spellbooks.summon_count",
+                        new Object[]{this.getSummonCount(spellLevel, caster)}),
+
+                Component.translatable("ui.irons_spellbooks.hp",
+                        new Object[]{Utils.stringTruncation(this.getTotalHealth(spellLevel, caster), 1)})
+        );
+    }
+
+    @Override
+    public Component getLockedMessage() {
+        return Component.translatable("ui.echoing_magic.brave_rod_spell");
+    }
+
+    @Override
+    public boolean allowLooting() {
+        return false;
+    }
+
+    @Override
+    public boolean canBeCraftedBy(Player player) {
+        Item echoedManuscript = ACItems.BRAVE_ROD.get();
+        return isValidUnlockItemInInventory(echoedManuscript, player);
     }
 
     public ConjureGrimoraySpell() {
@@ -54,11 +81,11 @@ public class ConjureGrimoraySpell extends AbstractSpell {
                 .setMaxLevel(5)
                 .setCooldownSeconds((double)150.0F)
                 .build();
-        this.manaCostPerLevel = 10;
-        this.baseSpellPower = 1;
-        this.spellPowerPerLevel = 0;
+        this.manaCostPerLevel = 15;
+        this.baseSpellPower = 5;
+        this.spellPowerPerLevel = 5;
         this.castTime = 20;
-        this.baseManaCost = 50;
+        this.baseManaCost = 100;
     }
 
     public CastType getCastType() {
@@ -137,4 +164,9 @@ public class ConjureGrimoraySpell extends AbstractSpell {
     public double getHealthBonus(int spellLevel, LivingEntity caster) {
         return (double)(this.getSpellPower(spellLevel, caster) - 1.0F) * 0.1;
     }
+
+    public double getTotalHealth(int spellLevel, LivingEntity caster) {
+        return 24.0D * (1.0D + this.getHealthBonus(spellLevel, caster));
+    }
+
 }

@@ -9,6 +9,7 @@ import io.redspace.ironsspellbooks.item.weapons.AttributeContainer;
 import io.redspace.ironsspellbooks.util.MinecraftInstanceHelper;
 import net.hazen.echoing_magic.Compat.GTBCGeomancyPlus.GGArmorCompat;
 import net.hazen.echoing_magic.EMConfig;
+import net.hazen.echoing_magic.Utils.Armor.EMArmorMaterials;
 import net.hazen.echoing_magic.Utils.Armor.ImbuableEMArmorItem;
 import net.hazen.hazentouvelib.Rarities.HLRarities;
 import net.hazen.hazentouvelib.Registries.HLAttributeRegistry;
@@ -39,8 +40,7 @@ public class ReinforcedJuggernautArmor extends ImbuableEMArmorItem implements ID
 
 
     public ReinforcedJuggernautArmor(Type type, Properties settings) {
-        //super(EMArmorMaterials.REINFORCE_JUGGERNAUT_MATERIAL, type,
-        super(ArmorMaterials.NETHERITE, type,
+        super(EMArmorMaterials.REINFORCE_JUGGERNAUT_MATERIAL, type,
                 settings
                         .stacksTo(1)
                         .rarity(HLRarities.COSMIC_RARITY.getValue())
@@ -110,8 +110,6 @@ public class ReinforcedJuggernautArmor extends ImbuableEMArmorItem implements ID
                                 @NotNull List<Component> lines,
                                 @NotNull TooltipFlag flag) {
         super.appendHoverText(stack, context, lines, flag);
-
-        lines.add(Component.translatable("tooltip.irons_spellbooks.passive_ability_no_cooldown", new Object[]{Component.literal(Utils.timeFromTicks((float)Utils.applyCooldownReduction(20, MinecraftInstanceHelper.getPlayer()), 1)).withStyle(ChatFormatting.AQUA)}).withStyle(ChatFormatting.DARK_PURPLE));
         lines.add(Component.translatable("item.echoing_magic.set_bonus.description"));
         lines.add(Component.translatable("item.echoing_magic.reinforced_juggernaut_explosion_resist.description")
                 .withStyle(ChatFormatting.AQUA, ChatFormatting.ITALIC));

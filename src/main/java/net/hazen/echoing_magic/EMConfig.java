@@ -12,10 +12,10 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 public class EMConfig {
     private static final ModConfigSpec.Builder BUILDER = new ModConfigSpec.Builder();
 
-    private static final ModConfigSpec.ConfigValue<Float> REINFORCED_JUGGERNAUT_EXPLOSION_RESIST;
+    private static final ModConfigSpec.ConfigValue<Integer> REINFORCED_JUGGERNAUT_EXPLOSION_RESIST;
     private static final ModConfigSpec.ConfigValue<Integer> IMPACT_AUGMENT_COOLDOWN;
     private static final ModConfigSpec.ConfigValue<Integer> REINFORCED_JUGGERNAUT_COOLDOWN;
-    public static float reinforcedJuggernautExplosionResist;
+    public static int reinforcedJuggernautExplosionResist;
     public static int impactAugmentCooldown;
     public static int reinforcedJuggernautCooldown;
     public static final ModConfigSpec SPEC;
@@ -27,7 +27,7 @@ public class EMConfig {
     static void onLoad(ModConfigEvent event)
     {
         // Reinforced Juggernaut
-        reinforcedJuggernautExplosionResist = (Float) REINFORCED_JUGGERNAUT_EXPLOSION_RESIST.get();
+        reinforcedJuggernautExplosionResist = (Integer) REINFORCED_JUGGERNAUT_EXPLOSION_RESIST.get();
         reinforcedJuggernautCooldown = (Integer) REINFORCED_JUGGERNAUT_COOLDOWN.get();
 
         impactAugmentCooldown = (Integer) IMPACT_AUGMENT_COOLDOWN.get();
@@ -48,8 +48,8 @@ public class EMConfig {
 
             REINFORCED_JUGGERNAUT_EXPLOSION_RESIST = BUILDER
                     .comment("Defines the percentage for the Reignforced Juggernaut's explosion resist.")
-                    .comment("Default is 30%")
-                    .define("Reignforced Juggernaut Explosion Resist", 0.30F);
+                    .comment("Default is 30")
+                    .define("Reignforced Juggernaut Explosion Resist", 30);
 
 
             REINFORCED_JUGGERNAUT_COOLDOWN = BUILDER

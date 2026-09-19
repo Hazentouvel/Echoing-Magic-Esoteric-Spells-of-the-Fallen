@@ -10,6 +10,7 @@ import io.redspace.ironsspellbooks.api.spells.SpellRarity;
 import io.redspace.ironsspellbooks.api.util.Utils;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Entities.Spells.InterceptBlast.ExtendedLODEchoBlast;
+import net.hazen.echoing_magic.Spells.AbstractSpell.LastOfDeepslateSpell;
 import net.hazen.hazentouvelib.Registries.HLSchoolRegistry;
 import net.hazen.hazentouvelib.Registries.HLSounds;
 import net.minecraft.network.chat.Component;
@@ -23,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.List;
 import java.util.Optional;
 
-public class EchoBlastSpell extends AbstractSpell {
+public class EchoBlastSpell extends LastOfDeepslateSpell {
     private final ResourceLocation spellId = ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "echo_blast");
 
     @Override

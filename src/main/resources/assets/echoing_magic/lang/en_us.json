@@ -3,6 +3,9 @@
 
   "item.echoing_magic.echoing_essence": "Echoing Essence",
 
+  "item.echoing_magic.echoed_manuscript": "Echoed Manuscript",
+  "item.echoing_magic.echoed_manuscript.description": "Keep in the inventory while crafting cosmic spells to make spells related to the Last of Deepslate.",
+
   "item.echoing_magic.impact_augment": "Impact Augment",
   "item.echoing_magic.impact_augment.desc": "Deals damage to the area you are teleported to.",
   "item.echoing_magic.impact_augment.desc.alt": "A pearl reinforced the essence of the brave attached onto chain...",
@@ -39,14 +42,23 @@
   "entity.echoing_magic.summon_brave": "Summoned Brave",
   "entity.echoing_magic.conjure_grimoray": "Summoned Grimoray",
 
+  "ui.echoing_magic.last_of_deepslate_spell": "Requires an Echoed Manuscript to craft.",
+  "ui.echoing_magic.echo_charge_spell": "Requires an Echo Charge to craft.",
+  "ui.echoing_magic.brave_rod_spell": "Requires an Brave Rod to craft.",
 
   "death.attack.echoing_magic.echo_star": "%1$s was bombarded by %2$s",
   "death.attack.echoing_magic.echo_blast": "%1$s was obliterated by %2$s",
   "death.attack.echoing_magic.echoing_explosion": "%1$s was exploded by %2$s",
   "death.attack.echoing_magic.echoing_slam": "%1$s was vaporized by %2$s",
+  "death.attack.echoing_magic.collapse": "%1$s was smushed by %2$s",
+  "death.attack.echoing_magic.summon_brave": "%1$s was flattened by %2$s",
+  "death.attack.echoing_magic.conjure_grimoray": "%1$s brain was lowkey kinda fried by %2$s's intelligence ong ong.",
 
   "death.attack.echoing_magic.echo_star.item": "%1$s was bombarded by %2$s with the use of %3$s",
   "death.attack.echoing_magic.echo_blast.item": "%1$s was obliterated by %2$s with the use of %3$s",
   "death.attack.echoing_magic.echoing_explosion.item": "%1$s was exploded by %2$s with the use of %3$s",
-  "death.attack.echoing_magic.echoing_slam.item": "%1$s was vaporized by %2$s with the use of %3$s"
+  "death.attack.echoing_magic.echoing_slam.item": "%1$s was vaporized by %2$s with the use of %3$s",
+  "death.attack.echoing_magic.collapse.item": "%1$s got brain damage from %2$s with the use of %3$s",
+  "death.attack.echoing_magic.summon_brave.item": "%1$s got sat on by %2$s with the use of %3$s",
+  "death.attack.echoing_magic.conjure_grimoray.item": "%1$s should've learned to read just like %2$s, also I guess they used %3$s to beat them but that's besides the point."
 }

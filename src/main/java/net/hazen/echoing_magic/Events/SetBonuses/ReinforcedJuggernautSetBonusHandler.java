@@ -45,12 +45,12 @@ public class ReinforcedJuggernautSetBonusHandler {
                 entity.getItemBySlot(ArmorItem.Type.BOOTS.getSlot()).getItem() instanceof ReinforcedJuggernautArmor;
     }
 
-    protected float getExplosionResistance() {
+    protected int getExplosionResistance() {
         return EMConfig.reinforcedJuggernautExplosionResist;
     }
 
     static {
-        EXPLOSION_RESISTANCE = EMConfig.reinforcedJuggernautExplosionResist;
+        EXPLOSION_RESISTANCE = (float) EMConfig.reinforcedJuggernautExplosionResist / 100.0F;
     }
 
     @SubscribeEvent
