@@ -90,7 +90,7 @@ public class EchoBlastSpell extends LastOfDeepslateSpell {
     }
 
     public float getDamage(int spellLevel, LivingEntity caster) {
-        return 10 + 5 * getSpellPower(spellLevel, caster);
+        return 7 * getSpellPower(spellLevel, caster);
     }
 
     public int getRadius(int spellLevel, LivingEntity caster) {

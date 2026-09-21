@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "echoing_magic:crafting/armor/reinforced_juggernaut/reinforced_juggernaut_chestplate"
+        "recipe": "echoing_magic:smithing/misc/echo_manuscript"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "echoing_magic:crafting/armor/reinforced_juggernaut/reinforced_juggernaut_chestplate"
+      "echoing_magic:smithing/misc/echo_manuscript"
     ]
   }
 }

@@ -6,6 +6,7 @@ import io.redspace.ironsspellbooks.api.events.CustomizeScrollModNameEvent;
 import io.redspace.ironsspellbooks.spells.blood.WitherSkullSpell;
 import io.redspace.ironsspellbooks.spells.ender.BlackHoleSpell;
 import io.redspace.ironsspellbooks.spells.ender.StarfallSpell;
+import net.hazen.echoing_magic.Compat.GTBCGeomancyPlus.GGSpellCompat;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.hazentouvelib.Registries.HLSchoolRegistry;
 import net.minecraft.ChatFormatting;
@@ -45,5 +46,7 @@ public class EMSpellEvents {
         if(event.getSpell() instanceof WitherSkullSpell) {
             event.setDefaultValue(SpellConfigParameter.SCHOOL, HLSchoolRegistry.SHADOW.get());
         }
+
+        GGSpellCompat.LoadedOnly.modifySpellSchool(event);
     }
 }

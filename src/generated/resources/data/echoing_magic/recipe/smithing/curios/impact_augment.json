@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "archaion:impact_pearl"
+  },
+  "base": {
+    "item": "irons_spellbooks:teleportation_amulet"
+  },
+  "result": {
+    "count": 1,
+    "id": "echoing_magic:impact_augment"
+  },
+  "template": {
+    "item": "minecraft:echo_shard"
+  }
+}

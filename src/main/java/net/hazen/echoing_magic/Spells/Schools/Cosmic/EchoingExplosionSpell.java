@@ -87,8 +87,8 @@ public class EchoingExplosionSpell extends AbstractSpell {
                 .setCooldownSeconds((double)45.0F)
                 .build();
         this.manaCostPerLevel = 5;
-        this.baseSpellPower = 10;
-        this.spellPowerPerLevel = 5;
+        this.baseSpellPower = 15;
+        this.spellPowerPerLevel = 2;
         this.castTime = 45;
         this.baseManaCost = 100;
     }
@@ -155,9 +155,12 @@ public class EchoingExplosionSpell extends AbstractSpell {
     }
 
     public float getDamage(int spellLevel, LivingEntity caster) {
-        return 10.0F + this.getSpellPower(spellLevel, caster) * 0.75F;
+        return 10.0F + this.getSpellPower(spellLevel, caster) * 0.6F;
     }
 
+    public int getDuration(int spellLevel, LivingEntity caster) {
+        return (int)(this.getSpellPower(spellLevel, caster) * 20.0F);
+    }
     private void triggerImpactFrame(LivingEntity entity) {
         if (entity instanceof ServerPlayer serverPlayer) {
             ImpactFrameHandler.trigger(serverPlayer, 0xc8fffe, 0x00a5e7, 0.8f, ImpactFrameHandler.DEFAULT_THRESHOLD, 10, 1, 0.1f);
@@ -165,12 +168,9 @@ public class EchoingExplosionSpell extends AbstractSpell {
     }
 
     public float getRadius(int spellLevel, LivingEntity caster) {
-        return 6.0F + (float)spellLevel * 0.75F;
+        return 3 + (float)spellLevel * 0.2F;
     }
 
-    public int getDuration(int spellLevel, LivingEntity caster) {
-        return (int)(this.getSpellPower(spellLevel, caster) * 20.0F);
-    }
 
     public AnimationHolder getCastStartAnimation() {
         return SpellAnimations.PREPARE_CROSS_ARMS;

@@ -18,8 +18,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
 public class ExtendedEchoStar extends EchoStarProjectile {
-    private float baseDamage = 20.0F;
-    private float powerBonus;
     private float damage;
 
     public void setDamage(float damage) {
@@ -44,21 +42,12 @@ public class ExtendedEchoStar extends EchoStarProjectile {
         this.setOwner(shooter);
     }
 
-    public void setPowerBonus(float powerBonus) {
-        this.powerBonus = powerBonus;
-    }
-
-    public void setBaseDamage(float baseDamage) {
-        this.baseDamage = baseDamage;
-    }
-
     @Override
     public void damageArea() {
         ServerLevel server = (ServerLevel) this.level();
-        float damage = this.baseDamage + this.powerBonus;
+        float damage = this.damage;
         for (LivingEntity target : server.getEntitiesOfClass(LivingEntity.class, this.getBoundingBox().inflate(3.0D))) {
             if (target != this.getOwner() && this.canHurt(target)) {
-                target.hurt(server.damageSources().explosion(this, this.getOwner()), damage);
                 DamageSources.applyDamage(target, damage, ((AbstractSpell) EMSpellRegistries.ECHO_STAR.get()).getDamageSource(this, this.getOwner()));
             }
         }

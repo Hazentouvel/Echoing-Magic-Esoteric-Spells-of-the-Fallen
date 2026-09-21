@@ -4,6 +4,7 @@ import io.redspace.ironsspellbooks.api.spells.AbstractSpell;
 import net.hazen.echoing_magic.EchoingMagic;
 import net.hazen.echoing_magic.Spells.Schools.Cosmic.*;
 import net.hazen.echoing_magic.Spells.Schools.Evocation.ConjureGrimoraySpell;
+import net.hazen.echoing_magic.Spells.Schools.Evocation.SummonBraveSpell;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 

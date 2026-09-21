@@ -38,6 +38,20 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
 
 
         /*
+        *** Curios
+         */
+
+        SmithingTransformRecipeBuilder.smithing(
+                        Ingredient.of(EMItemRegistry.ECHOING_ESSENCE.get()),
+                        Ingredient.of(ItemRegistry.ELDRITCH_PAGE.get()),
+                        Ingredient.of(ACItems.ECHO_CHARGE),
+                        RecipeCategory.COMBAT,
+                        EMItemRegistry.ECHOED_MANUSCRIPT.get())
+                .unlocks("has_echoing_essence", has(EMItemRegistry.ECHOING_ESSENCE))
+                .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "smithing/misc/echo_manuscript"));
+
+
+        /*
         *** Armor
          */
 
@@ -50,7 +64,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('C', ACItems.ECHO_CHARGE.get())
                 .define('E', EMItemRegistry.ECHOING_ESSENCE.get())
                 .define('D', Items.COBBLED_DEEPSLATE)
-                .unlockedBy("has_echoing_essnece", has(EMItemRegistry.ECHOING_ESSENCE.get()))
+                .unlockedBy("has_echoing_essence", has(EMItemRegistry.ECHOING_ESSENCE.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "crafting/armor/reinforced_juggernaut/reinforced_juggernaut_helmet"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItemRegistry.REINFORCED_JUGGERNAUT_CHESTPLATE.get())
@@ -62,7 +76,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('C', ACItems.ECHO_CHARGE.get())
                 .define('E', EMItemRegistry.ECHOING_ESSENCE.get())
                 .define('D', Items.COBBLED_DEEPSLATE)
-                .unlockedBy("has_echoing_essnece", has(EMItemRegistry.ECHOING_ESSENCE.get()))
+                .unlockedBy("has_echoing_essence", has(EMItemRegistry.ECHOING_ESSENCE.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "crafting/armor/reinforced_juggernaut/reinforced_juggernaut_chestplate"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItemRegistry.REINFORCED_JUGGERNAUT_LEGGINGS.get())
@@ -73,7 +87,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('B', ACItems.BRAVE_ESSENCE.get())
                 .define('E', EMItemRegistry.ECHOING_ESSENCE.get())
                 .define('D', Items.COBBLED_DEEPSLATE)
-                .unlockedBy("has_echoing_essnece", has(EMItemRegistry.ECHOING_ESSENCE.get()))
+                .unlockedBy("has_echoing_essence", has(EMItemRegistry.ECHOING_ESSENCE.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "crafting/armor/reinforced_juggernaut/reinforced_juggernaut_leggings"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, EMItemRegistry.REINFORCED_JUGGERNAUT_BOOTS.get())
@@ -84,7 +98,7 @@ public class EMRecipeProvider extends RecipeProvider implements IConditionBuilde
                 .define('B', ACItems.BRAVE_ESSENCE.get())
                 .define('E', EMItemRegistry.ECHOING_ESSENCE.get())
                 .define('D', Items.COBBLED_DEEPSLATE)
-                .unlockedBy("has_echoing_essnece", has(EMItemRegistry.ECHOING_ESSENCE.get()))
+                .unlockedBy("has_echoing_essence", has(EMItemRegistry.ECHOING_ESSENCE.get()))
                 .save(recipeOutput, ResourceLocation.fromNamespaceAndPath(EchoingMagic.MOD_ID, "crafting/armor/reinforced_juggernaut/reinforced_juggernaut_boots"));
 
 

@@ -82,8 +82,8 @@ public class ConjureGrimoraySpell extends AbstractSpell {
                 .setCooldownSeconds((double)150.0F)
                 .build();
         this.manaCostPerLevel = 15;
-        this.baseSpellPower = 5;
-        this.spellPowerPerLevel = 5;
+        this.baseSpellPower = 4;
+        this.spellPowerPerLevel = 1;
         this.castTime = 20;
         this.baseManaCost = 100;
     }
@@ -162,7 +162,7 @@ public class ConjureGrimoraySpell extends AbstractSpell {
     }
 
     public double getHealthBonus(int spellLevel, LivingEntity caster) {
-        return (double)(this.getSpellPower(spellLevel, caster) - 1.0F) * 0.1;
+        return (double)(this.getSpellPower(spellLevel, caster) - 1.0F) * 0.2;
     }
 
     public double getTotalHealth(int spellLevel, LivingEntity caster) {

@@ -66,17 +66,17 @@ public class EchoStarSpell extends AbstractSpell {
                 .setMinRarity(SpellRarity.EPIC)
                 .setSchoolResource(HLSchoolRegistry.COSMIC_RESOURCE)
                 .setMaxLevel(10)
-                .setCooldownSeconds((double)1.0F)
+                .setCooldownSeconds((double)5.0F)
                 .build();
         this.manaCostPerLevel = 8;
         this.baseSpellPower = 20;
-        this.spellPowerPerLevel = 10;
-        this.castTime = 0;
+        this.spellPowerPerLevel = 4;
+        this.castTime = 10;
         this.baseManaCost = 75;
     }
 
     public CastType getCastType() {
-        return CastType.INSTANT;
+        return CastType.LONG;
     }
 
     @Override
@@ -126,6 +126,6 @@ public class EchoStarSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) * 0.5F;
+        return this.getSpellPower(spellLevel, entity) * 0.6F;
     }
 }

@@ -75,7 +75,7 @@ public class CollapseSpell extends AbstractSpell {
                 .build();
         this.manaCostPerLevel = 45;
         this.baseSpellPower = 25;
-        this.spellPowerPerLevel = 15;
+        this.spellPowerPerLevel = 5;
         this.castTime = 10;
         this.baseManaCost = 90;
     }
@@ -150,7 +150,7 @@ public class CollapseSpell extends AbstractSpell {
     }
 
     private float getDamage(int spellLevel, LivingEntity entity) {
-        return this.getSpellPower(spellLevel, entity) * 0.5F;
+        return this.getSpellPower(spellLevel, entity) * 0.4F;
     }
 
     private float getRadius(int spellLevel, LivingEntity entity) {

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "archaion:echo_charge"
+  },
+  "base": {
+    "item": "irons_spellbooks:eldritch_manuscript"
+  },
+  "result": {
+    "count": 1,
+    "id": "echoing_magic:echoed_manuscript"
+  },
+  "template": {
+    "item": "echoing_magic:echoing_essence"
+  }
+}

@@ -1,4 +1,4 @@
-package net.hazen.echoing_magic.Spells.Schools.Cosmic;
+package net.hazen.echoing_magic.Spells.Schools.Evocation;
 
 import com.ratrod.archaion.registry.ACItems;
 import io.redspace.ironsspellbooks.IronsSpellbooks;
@@ -75,8 +75,8 @@ public class SummonBraveSpell extends AbstractSpell {
                 .setCooldownSeconds((double)150.0F)
                 .build();
         this.manaCostPerLevel = 15;
-        this.baseSpellPower = 5;
-        this.spellPowerPerLevel = 5;
+        this.baseSpellPower = 4;
+        this.spellPowerPerLevel = 1;
         this.castTime = 20;
         this.baseManaCost = 100;
     }
@@ -149,11 +149,11 @@ public class SummonBraveSpell extends AbstractSpell {
     }
 
     public double getHealthBonus(int spellLevel, LivingEntity caster) {
-        return (double)(this.getSpellPower(spellLevel, caster) - 1.0F) * 0.3;
+        return (double)(this.getSpellPower(spellLevel, caster) - 1.0F) * 0.25;
     }
 
     public double getDamageBonus(int spellLevel, LivingEntity caster) {
-        return (double)(this.getSpellPower(spellLevel, caster) - 2.0F) * 0.5;
+        return (double)(this.getSpellPower(spellLevel, caster) - 3.0F) * 0.25;
     }
 
     public double getTotalHealth(int spellLevel, LivingEntity caster) {
